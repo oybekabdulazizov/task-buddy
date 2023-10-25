@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 export type todo_type = {
   id: string;
@@ -13,9 +13,27 @@ const initialState: Array<todo_type> = [
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
-  reducers: {},
+  reducers: {
+    addTodo: {
+      reducer(state, { payload }) {
+        state.push(payload);
+      },
+      prepare(task: string) {
+        return {
+          payload: {
+            id: nanoid(),
+            task,
+          },
+          meta: null,
+          error: null,
+        };
+      },
+    },
+  },
 });
 
 export const getTodos = (state: any) => state.todos;
+
+export const { addTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;

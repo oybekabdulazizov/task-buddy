@@ -1,3 +1,4 @@
+import TodoForm from './components/TodoForm';
 import TodosList from './components/TodosList';
 
 export default function App() {
@@ -5,6 +6,7 @@ export default function App() {
     <div className='w-full h-full py-10 bg-sky-950'>
       <div className='mx-auto max-w-[500px] py-4 px-6 bg-stone-300 rounded-lg'>
         <h1 className='text-4xl font-light my-4'>TaskBuddy</h1>
+        <TodoForm />
         <TodosList />
       </div>
     </div>
