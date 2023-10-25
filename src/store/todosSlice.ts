@@ -52,10 +52,12 @@ const todosSlice = createSlice({
       }
     },
     updateTodo: (state, { payload }) => {
-      const todo = state.find((todo: todo_type) => todo.id === payload);
-      const todos = state.filter((todo: todo_type) => todo.id !== payload);
+      const todo = state.find((todo: todo_type) => todo.id === payload.todoId);
+      const todos = state.filter(
+        (todo: todo_type) => todo.id !== payload.todoId
+      );
       if (todo) {
-        todo.completed = !todo.completed;
+        todo.task = payload.newTask;
         state = [...todos, todo];
       }
     },
