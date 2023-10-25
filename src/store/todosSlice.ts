@@ -61,6 +61,9 @@ const todosSlice = createSlice({
         state = [...todos, todo];
       }
     },
+    deleteTodo: (state, { payload }) => {
+      return [...state.filter((todo: todo_type) => todo.id !== payload)];
+    },
   },
 });
 
@@ -68,6 +71,7 @@ export const getTodos = (state: any) => state.todos;
 export const getTodo = (state: any, todoId: string) =>
   state.todos.find((todo: todo_type) => todo.id === todoId);
 
-export const { createTodo, completeTodo, updateTodo } = todosSlice.actions;
+export const { createTodo, completeTodo, updateTodo, deleteTodo } =
+  todosSlice.actions;
 
 export default todosSlice.reducer;

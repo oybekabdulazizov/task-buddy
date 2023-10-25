@@ -3,7 +3,7 @@ import { BsPencilFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
 import { ChangeEvent, useState } from 'react';
 
-import { getTodo, completeTodo } from '../store/todosSlice';
+import { getTodo, completeTodo, deleteTodo } from '../store/todosSlice';
 import TodoForm from './TodoForm';
 
 export default function TodoCard({ todoId }: { todoId: string }) {
@@ -16,6 +16,10 @@ export default function TodoCard({ todoId }: { todoId: string }) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
     dispatch(completeTodo(todoId));
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteTodo(todoId));
   };
 
   return (
@@ -34,15 +38,15 @@ export default function TodoCard({ todoId }: { todoId: string }) {
           </label>
           <div className='flex flex-row gap-2 ml-2'>
             <button
-              className={`border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8 ${
-                checked ? 'text-slate-500' : ''
-              }`}
+              className='border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8'
               onClick={() => setEdit(!edit)}
-              disabled={checked}
             >
               <BsPencilFill />
             </button>
-            <button className='border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8'>
+            <button
+              className='border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8'
+              onClick={handleDelete}
+            >
               <AiFillDelete />
             </button>
           </div>
