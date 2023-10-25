@@ -47,6 +47,8 @@ const todosSlice = createSlice({
 });
 
 export const getTodos = (state: any) => state.todos;
+export const getTodo = (state: any, todoId: string) =>
+  state.todos.find((todo: todo_type) => todo.id === todoId);
 
 export const { addTodo } = todosSlice.actions;
 

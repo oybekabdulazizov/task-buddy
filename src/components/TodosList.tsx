@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { getTodos, todo_type } from '../store/todosSlice';
+import TodoCard from './TodoCard';
 
 export default function TodosList() {
   const todos = useSelector(getTodos);
@@ -12,7 +13,7 @@ export default function TodosList() {
       ) : (
         <>
           {todos.map((todo: todo_type) => (
-            <div key={todo.id}>{todo.task}</div>
+            <TodoCard todoId={todo.id} key={todo.id} />
           ))}
         </>
       )}

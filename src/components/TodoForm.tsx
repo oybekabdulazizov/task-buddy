@@ -31,7 +31,7 @@ export default function TodoForm() {
   return (
     <div className='w-full my-6'>
       <form onSubmit={handleSubmit} className='flex flex-col gap-1'>
-        <div className='flex flex-row gap-2'>
+        <div className='flex flex-row gap-3'>
           <input
             type='text'
             value={task}
@@ -42,7 +42,7 @@ export default function TodoForm() {
           />
           <button
             type='submit'
-            className='border rounded-lg py-2 px-4 text-md font-normal focus:outline-slate-200'
+            className='border rounded-lg py-2 px-6 text-md font-normal focus:outline-slate-200'
           >
             Add
           </button>
