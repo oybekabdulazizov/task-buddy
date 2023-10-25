@@ -16,10 +16,11 @@ const todosSlice = createSlice({
   initialState,
   reducers: {
     createTodo: {
-      reducer(state, { payload }) {
+      reducer(_state, { payload }) {
         const todos = JSON.parse(localStorage.getItem('todos') || '[]');
-        state = [...todos, payload];
-        localStorage.setItem('todos', JSON.stringify(state));
+        const updatedTodos = [...todos, payload];
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        return [...updatedTodos];
       },
       prepare(task: string) {
         return {
@@ -34,39 +35,41 @@ const todosSlice = createSlice({
         };
       },
     },
-    completeTodo: (state, { payload }) => {
+    completeTodo: (_state, { payload }) => {
       const todos_db = JSON.parse(localStorage.getItem('todos') || '[]');
       const todo = todos_db.find((todo: todo_type) => todo.id === payload);
-      const filteredTodos = state.filter(
+      const filteredTodos = todos_db.filter(
         (todo: todo_type) => todo.id !== payload
       );
       if (todo) {
         todo.completed = !todo.completed;
-        state = [...filteredTodos, todo];
-        localStorage.setItem('todos', JSON.stringify(state));
+        const updatedTodos = [...filteredTodos, todo];
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        return [...updatedTodos];
       }
     },
-    updateTodo: (state, { payload }) => {
+    updateTodo: (_state, { payload }) => {
       const todos_db = JSON.parse(localStorage.getItem('todos') || '[]');
       const todo = todos_db.find(
         (todo: todo_type) => todo.id === payload.todoId
       );
-      const filteredTodos = state.filter(
+      const filteredTodos = todos_db.filter(
         (todo: todo_type) => todo.id !== payload.todoId
       );
       if (todo) {
         todo.task = payload.newTask;
-        state = [...filteredTodos, todo];
-        localStorage.setItem('todos', JSON.stringify(state));
+        const updatedTodos = [...filteredTodos, todo];
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        return [...updatedTodos];
       }
     },
-    deleteTodo: (state, { payload }) => {
+    deleteTodo: (_state, { payload }) => {
       const todos_db = JSON.parse(localStorage.getItem('todos') || '[]');
-      const filteredTodos = [
+      const updatedTodos = [
         ...todos_db.filter((todo: todo_type) => todo.id !== payload),
       ];
-      localStorage.setItem('todos', JSON.stringify(filteredTodos));
-      state = [...filteredTodos];
+      localStorage.setItem('todos', JSON.stringify(updatedTodos));
+      return [...updatedTodos];
     },
   },
 });
