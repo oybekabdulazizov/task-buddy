@@ -7,9 +7,15 @@ export default function TodosList() {
 
   return (
     <div className='my-2'>
-      {todos.map((todo: todo_type) => (
-        <div key={todo.id}>{todo.task}</div>
-      ))}
+      {!todos || todos.length < 1 ? (
+        <p className='font-light text-slate-700'>Let's add some tasks</p>
+      ) : (
+        <>
+          {todos.map((todo: todo_type) => (
+            <div key={todo.id}>{todo.task}</div>
+          ))}
+        </>
+      )}
     </div>
   );
 }
