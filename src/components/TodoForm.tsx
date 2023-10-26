@@ -36,7 +36,7 @@ export default function TodoForm({ todoId, edit, setEdit }: Props) {
       setError('Task is required');
     } else {
       if (edit && setEdit) {
-        dispatch(updateTodo({ todoId: todo.id, newTask: task }));
+        dispatch(updateTodo({ ...todo, task }));
         setEdit(false);
       } else {
         dispatch(createTodo(task));
