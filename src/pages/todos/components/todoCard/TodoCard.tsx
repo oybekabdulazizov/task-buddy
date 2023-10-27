@@ -6,6 +6,7 @@ import { AiFillDelete } from 'react-icons/ai';
 import { deleteTodo, getTodo, updateTodo } from '../../../../store/todosSlice';
 import EditTodo from '../editTodo/EditTodo';
 import Button from '../../../../components/button/Button';
+import Checkbox from '../../../../components/checkbox/Checkbox';
 
 interface ITodoCard {
   todoId: string;
@@ -38,9 +39,8 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
         <>
           {todo && (
             <div className='w-full flex flex-row gap-1 items-center mb-2'>
-              <input
+              <Checkbox
                 id={todo.task}
-                type='checkbox'
                 checked={checked}
                 onChange={handleChange}
               />

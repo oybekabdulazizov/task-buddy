@@ -32,7 +32,7 @@ const CreateTodo: FC = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-1 mb-2'>
       <div className='flex flex-row gap-3'>
-        <Input value={task} onChange={handleChange}/>
+        <Input value={task} onChange={handleChange} />
         <Button title='Add' classes='py-2 px-8' />
       </div>
       {error && error.length > 0 && <p className='text-red-500'>{error}</p>}
