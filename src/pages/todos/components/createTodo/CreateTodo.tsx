@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { createTodo } from '../../../../store/todosSlice';
 import Button from '../../../../components/button/Button';
+import Input from '../../../../components/input/Input';
 
 const CreateTodo: FC = () => {
   const dispatch = useDispatch();
@@ -31,14 +32,7 @@ const CreateTodo: FC = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-1 mb-2'>
       <div className='flex flex-row gap-3'>
-        <input
-          type='text'
-          value={task}
-          className='py-3 px-3 text-sm w-full focus:outline-none rounded-lg'
-          autoFocus
-          placeholder='e.g. Apply to 50 jobs'
-          onChange={handleChange}
-        />
+        <Input value={task} onChange={handleChange}/>
         <Button title='Add' classes='py-2 px-8 text-sm' />
       </div>
       {error && error.length > 0 && <p className='text-red-500'>{error}</p>}
