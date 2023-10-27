@@ -3,7 +3,11 @@ import { ChangeEvent, useEffect, useState, FC } from 'react';
 import { BsPencilFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
 
-import { deleteTodo, getTodo, updateTodo } from '../../../../store/todosSlice';
+import {
+  deleteTodo,
+  getTodo,
+  updateTodo,
+} from '../../../../services/store/todosSlice';
 import EditTodo from '../editTodo/EditTodo';
 import Button from '../../../../components/button/Button';
 import Checkbox from '../../../../components/checkbox/Checkbox';

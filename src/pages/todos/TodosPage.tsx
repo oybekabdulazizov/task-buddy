@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getTodos, todo_type } from '../../store/todosSlice';
+import { getTodos, todo_type } from '../../services/store/todosSlice';
 import TodosList from './components/todoList/TodosList';
 import CreateTodo from './components/createTodo/CreateTodo';
 

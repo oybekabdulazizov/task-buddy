@@ -1,7 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getTodo, todo_type, updateTodo } from '../../../../store/todosSlice';
+import {
+  getTodo,
+  todo_type,
+  updateTodo,
+} from '../../../../services/store/todosSlice';
 import Button from '../../../../components/button/Button';
 import Input from '../../../../components/input/Input';
 

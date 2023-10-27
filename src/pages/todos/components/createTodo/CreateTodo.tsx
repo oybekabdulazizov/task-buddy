@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { createTodo } from '../../../../store/todosSlice';
+import { createTodo } from '../../../../services/store/todosSlice';
 import Button from '../../../../components/button/Button';
 import Input from '../../../../components/input/Input';
 
