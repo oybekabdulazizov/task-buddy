@@ -13,7 +13,7 @@ const Button: FC<IButton> = ({
 }): string | ReactNode => {
   return (
     <button
-      className={`border rounded-lg font-normal focus:outline-slate-200 ${classes}`}
+      className={`border rounded-lg font-light text-md focus:outline-slate-200 ${classes}`}
       onClick={onClick}
       type='submit'
     >

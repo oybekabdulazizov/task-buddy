@@ -39,11 +39,13 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
           {todo && (
             <div className='w-full flex flex-row gap-1 items-center mb-2'>
               <input
+                id={todo.task}
                 type='checkbox'
                 checked={checked}
                 onChange={handleChange}
               />
               <label
+                htmlFor={todo.task}
                 className={`w-full break-all py-3 px-3 text-sm rounded-lg ${
                   checked ? 'line-through text-slate-500' : ''
                 }`}
@@ -58,7 +60,7 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
                 />
                 <Button
                   title={<AiFillDelete />}
-                  classes='text-md py-3 px-3'
+                  classes='py-3 px-3'
                   onClick={() => dispatch(deleteTodo({ id: todo.id }))}
                 />
               </div>
