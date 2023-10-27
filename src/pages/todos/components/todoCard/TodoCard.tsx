@@ -7,6 +7,7 @@ import { deleteTodo, getTodo, updateTodo } from '../../../../store/todosSlice';
 import EditTodo from '../editTodo/EditTodo';
 import Button from '../../../../components/button/Button';
 import Checkbox from '../../../../components/checkbox/Checkbox';
+import Label from '../../../../components/label/Label';
 
 interface ITodoCard {
   todoId: string;
@@ -44,14 +45,10 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
                 checked={checked}
                 onChange={handleChange}
               />
-              <label
-                htmlFor={todo.task}
-                className={`w-full break-all py-3 px-3 text-sm rounded-lg ${
-                  checked ? 'line-through text-slate-500' : ''
-                }`}
-              >
-                {todo.task}
-              </label>
+              <Label
+                text={todo.task}
+                classes={checked ? 'line-through text-slate-500' : ''}
+              />
               <div className='flex flex-row gap-2 ml-2'>
                 <Button
                   title={<BsPencilFill />}
