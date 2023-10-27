@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getTodo, todo_type, updateTodo } from '../../../../store/todosSlice';
+import Button from '../../../../components/button/Button';
 
 interface IEditTodo {
   todoId: string;
@@ -49,12 +50,11 @@ const EditTodo: FC<IEditTodo> = ({ todoId, setEdit }) => {
           placeholder='e.g. Apply to 50 jobs'
           onChange={handleChange}
         />
-        <button
-          type='submit'
-          className='border rounded-lg py-2 px-[30px] text-sm font-normal focus:outline-slate-200'
-        >
-          Save
-        </button>
+        <Button
+          title='Save'
+          classes='py-2 px-[30px] text-sm'
+          onClick={() => {}}
+        />
       </div>
       {error && error.length > 0 && <p className='text-red-500'>{error}</p>}
     </form>

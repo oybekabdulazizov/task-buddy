@@ -5,6 +5,7 @@ import { AiFillDelete } from 'react-icons/ai';
 
 import { deleteTodo, getTodo, updateTodo } from '../../../../store/todosSlice';
 import EditTodo from '../editTodo/EditTodo';
+import Button from '../../../../components/button/Button';
 
 interface ITodoCard {
   todoId: string;
@@ -29,10 +30,6 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
     setChecked(e.target.checked);
   };
 
-  const handleDelete = () => {
-    dispatch(deleteTodo({ id: todo.id }));
-  };
-
   return (
     <>
       {edit ? (
@@ -54,18 +51,16 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
                 {todo.task}
               </label>
               <div className='flex flex-row gap-2 ml-2'>
-                <button
-                  className='border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8'
+                <Button
+                  title={<BsPencilFill />}
+                  classes='text-md py-3 px-3'
                   onClick={() => setEdit(!edit)}
-                >
-                  <BsPencilFill />
-                </button>
-                <button
-                  className='border rounded-lg text-md py-3 px-3 focus:outline-slate-200 focus:outline-8'
-                  onClick={handleDelete}
-                >
-                  <AiFillDelete />
-                </button>
+                />
+                <Button
+                  title={<AiFillDelete />}
+                  classes='text-md py-3 px-3'
+                  onClick={() => dispatch(deleteTodo({ id: todo.id }))}
+                />
               </div>
             </div>
           )}

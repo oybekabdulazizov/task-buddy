@@ -2,6 +2,7 @@ import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createTodo } from '../../../../store/todosSlice';
+import Button from '../../../../components/button/Button';
 
 const CreateTodo: FC = () => {
   const dispatch = useDispatch();
@@ -38,12 +39,7 @@ const CreateTodo: FC = () => {
           placeholder='e.g. Apply to 50 jobs'
           onChange={handleChange}
         />
-        <button
-          type='submit'
-          className='border rounded-lg py-2 px-8 text-sm font-normal focus:outline-slate-200'
-        >
-          Add
-        </button>
+        <Button title='Add' classes='py-2 px-8 text-sm' />
       </div>
       {error && error.length > 0 && <p className='text-red-500'>{error}</p>}
     </form>
