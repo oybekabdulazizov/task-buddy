@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import Button from '../Button';
 
 describe('reusable button test', () => {
@@ -19,5 +20,11 @@ describe('reusable button test', () => {
     render(<Button title='submit' disabled={true} />);
     const btnElement = screen.getByRole('button');
     expect(btnElement).toBeDisabled();
+  });
+
+  test('test onClick of the button', () => {
+    render(<Button title='submit' onClick={() => console.log('clicked')} />);
+    const btnElement = screen.getByRole('button');
+    fireEvent.click(btnElement);
   });
 });
