@@ -2,10 +2,11 @@ import { FC } from 'react';
 
 import ICheckbox from './ICheckbox';
 
-const Input: FC<ICheckbox> = ({
-  id = '',
+const Checkbox: FC<ICheckbox> = ({
   checked,
-  disabled = false,
+  name='checkbox',
+  id = 'checkbox',
+  disabled,
   classes,
   onChange,
 }) => {
@@ -13,12 +14,14 @@ const Input: FC<ICheckbox> = ({
     <input
       type='checkbox'
       id={id}
+      name={name}
       checked={checked}
       onChange={onChange}
       className={`${classes}`}
       disabled={disabled}
+      alt='checkbox-input'
     />
   );
 };
 
-export default Input;
+export default Checkbox;
