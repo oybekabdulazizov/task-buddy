@@ -1,14 +1,11 @@
 import { FC } from 'react';
 
-interface ILabel {
-  text: string;
-  classes?: string;
-}
+import ILabel from './ILabel';
 
-const Label: FC<ILabel> = ({ text, classes }) => {
+const Label: FC<ILabel> = ({ text, htmlFor, classes }) => {
   return (
     <label
-      htmlFor={text}
+      htmlFor={htmlFor}
       className={`w-full break-all py-3 px-3 text-sm rounded-lg ${classes}`}
     >
       {text}
