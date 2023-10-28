@@ -12,10 +12,7 @@ import EditTodo from '../editTodo/EditTodo';
 import Button from '../../../../components/button/Button';
 import Checkbox from '../../../../components/checkbox/Checkbox';
 import Label from '../../../../components/label/Label';
-
-interface ITodoCard {
-  todoId: string;
-}
+import ITodoCard from './ITodoCard';
 
 const TodoCard: FC<ITodoCard> = ({ todoId }) => {
   const todo = useSelector((state) => getTodo(state, todoId));

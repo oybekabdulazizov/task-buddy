@@ -1,11 +1,7 @@
 import { FC } from 'react';
 
-import { todo_type } from '../../../../services/store/todosSlice';
 import TodoCard from '../todoCard/TodoCard';
-
-interface ITodoList {
-  data: Array<todo_type>;
-}
+import ITodoList from './ITodoList';
 
 const TodosList: FC<ITodoList> = ({ data }) => {
   return (
@@ -14,7 +10,7 @@ const TodosList: FC<ITodoList> = ({ data }) => {
         <p className='font-light text-slate-950'>Let's add some tasks</p>
       ) : (
         <div className='flex flex-col gap-2'>
-          {data.map((todo: todo_type) => (
+          {data.map((todo) => (
             <TodoCard todoId={todo.id} key={todo.id} />
           ))}
         </div>

@@ -8,11 +8,7 @@ import {
 } from '../../../../services/store/todosSlice';
 import Button from '../../../../components/button/Button';
 import Input from '../../../../components/input/Input';
-
-interface IEditTodo {
-  todoId: string;
-  setEdit: (edit: boolean) => void;
-}
+import IEditTodo from './IEditTodo';
 
 const EditTodo: FC<IEditTodo> = ({ todoId, setEdit }) => {
   const dispatch = useDispatch();
