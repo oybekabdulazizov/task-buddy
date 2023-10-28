@@ -1,25 +1,22 @@
-import { ChangeEvent, FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-interface ICheckbox {
-  id: string;
-  checked: boolean;
-  classes?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+import ICheckbox from './ICheckbox';
 
 const Input: FC<ICheckbox> = ({
-  id,
+  id = '',
   checked,
+  disabled = false,
   classes,
   onChange,
-}): string | ReactNode => {
+}) => {
   return (
     <input
       type='checkbox'
-      id={id || ''}
+      id={id}
       checked={checked}
       onChange={onChange}
       className={`${classes}`}
+      disabled={disabled}
     />
   );
 };
