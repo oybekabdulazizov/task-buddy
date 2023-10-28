@@ -14,3 +14,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+@layer components {
+  /* app wrapper */
+  .app-wrapper {
+    @apply min-h-full py-10 px-4 bg-sky-950;
+  }
+
+  /* content-wrapper */
+  .content-wrapper {
+    @apply mx-auto max-w-[600px] py-4 px-6 bg-stone-300 rounded-lg;
+  }
+
+  /* todo-card */
+  .todo-card {
+    @apply w-full flex flex-row gap-3 items-center;
+  }
+}

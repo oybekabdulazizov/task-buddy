@@ -43,20 +43,22 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
       ) : (
         <>
           {todo && (
-            <div className='w-full flex flex-row gap-1 items-center mb-2'>
-              <Checkbox
-                id={todo.task}
-                checked={checked}
-                onChange={handleChange}
-              />
-              <Label
-                text={todo.task}
-                classes={checked ? 'line-through text-slate-500' : ''}
-              />
-              <div className='flex flex-row gap-2 ml-2'>
+            <div className='todo-card'>
+              <div className='w-full flex flex-row gap-1'>
+                <Checkbox
+                  id={todo.task}
+                  checked={checked}
+                  onChange={handleChange}
+                />
+                <Label
+                  text={todo.task}
+                  classes={checked ? 'line-through text-slate-500' : ''}
+                />
+              </div>
+              <div className='flex flex-row gap-2'>
                 <Button
                   title={<BsPencilFill />}
-                  classes='text-md py-3 px-3'
+                  classes='py-3 px-3'
                   onClick={() => setEdit(!edit)}
                 />
                 <Button

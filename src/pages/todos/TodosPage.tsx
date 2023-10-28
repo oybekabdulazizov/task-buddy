@@ -14,9 +14,9 @@ export default function TodosPage() {
   }, [todos]);
 
   return (
-    <div>
+    <>
       <CreateTodo />
       <TodosList data={data} />
-    </div>
+    </>
   );
 }
