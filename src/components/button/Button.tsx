@@ -1,21 +1,20 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-interface IButton {
-  title: string | ReactNode;
-  classes: string;
-  onClick?: (item?: any) => void;
-}
+import IButton from './IButton';
 
 const Button: FC<IButton> = ({
   title,
   classes,
+  type = 'submit',
+  disabled = false,
   onClick,
-}): string | ReactNode => {
+}) => {
   return (
     <button
       className={`border rounded-lg font-light text-md focus:outline-slate-200 ${classes}`}
       onClick={onClick}
-      type='submit'
+      type={type}
+      disabled={disabled}
     >
       {title}
     </button>
