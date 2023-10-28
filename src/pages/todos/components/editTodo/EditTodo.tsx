@@ -48,7 +48,11 @@ const EditTodo: FC<IEditTodo> = ({ todoId, setEdit }) => {
     <form onSubmit={handleSubmit}>
       <div className='flex flex-col gap-1'>
         <div className='flex flex-row gap-3'>
-          <Input value={task} onChange={handleChange} />
+          <Input
+            value={task}
+            onChange={handleChange}
+            placeholder='e.g. Tidy up the room'
+          />
           <Button title='Save' classes='py-2 px-[30px]' />
         </div>
         {error && error.length > 0 && <p className='text-red-500'>{error}</p>}

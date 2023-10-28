@@ -33,7 +33,11 @@ const CreateTodo: FC = () => {
     <form onSubmit={handleSubmit}>
       <div className='flex flex-col gap-1 my-4'>
         <div className='flex flex-row gap-3'>
-          <Input value={task} onChange={handleChange} />
+          <Input
+            value={task}
+            onChange={handleChange}
+            placeholder='e.g. Tidy up the room'
+          />
           <Button title='Add' classes='py-2 px-8' />
         </div>
         {error && error.length > 0 && <p className='text-red-500'>{error}</p>}

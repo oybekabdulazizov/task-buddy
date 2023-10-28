@@ -1,22 +1,26 @@
-import { ChangeEvent, FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-interface IInput {
-  value: string;
-  classes?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+import IInput from './IInput';
 
 const Input: FC<IInput> = ({
   value,
+  type = 'text',
+  id = '',
+  hidden = false,
+  readonly = false,
+  placeholder, 
   classes,
   onChange,
-}): string | ReactNode => {
+}) => {
   return (
     <input
-      type='text'
+      type={type}
+      id={id}
       value={value}
-      placeholder='e.g. Tidy up the room'
+      hidden={hidden}
+      readOnly={readonly}
       onChange={onChange}
+      placeholder={placeholder}
       className={`py-3 px-3 text-sm w-full focus:outline-none rounded-lg ${classes}`}
     />
   );
