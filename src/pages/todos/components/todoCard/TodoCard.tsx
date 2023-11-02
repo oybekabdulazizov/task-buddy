@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ChangeEvent, useEffect, useState, FC } from 'react';
+import { useState, FC } from 'react';
 import { BsPencilFill } from 'react-icons/bs';
 import { AiFillDelete } from 'react-icons/ai';
 
 import {
   deleteTodo,
   getTodo,
+  todo_type,
   updateTodo,
 } from '../../../../services/store/todosSlice';
 import EditTodo from '../editTodo/EditTodo';
@@ -15,22 +16,15 @@ import Label from '../../../../components/label/Label';
 import ITodoCard from './ITodoCard';
 
 const TodoCard: FC<ITodoCard> = ({ todoId }) => {
-  const todo = useSelector((state) => getTodo(state, todoId));
+  const todo: todo_type = useSelector((state) => getTodo(state, todoId ));
   const dispatch = useDispatch();
 
-  const [checked, setChecked] = useState<boolean>(false);
-  const [edit, setEdit] = useState<boolean>(false);
-
-  useEffect(() => {
-    setChecked(todo?.completed);
-  }, []);
-
-  useEffect(() => {
-    dispatch(updateTodo({ ...todo, completed: checked }));
-  }, [checked]);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+  const [checked, setChecked] = useState(todo?.completed || false);
+  const [edit, setEdit] = useState(false);
+  
+  const handleChange = (c: boolean) => {
+    setChecked(c);
+    dispatch(updateTodo({ ...todo, completed: c }));
   };
 
   return (
@@ -48,6 +42,7 @@ const TodoCard: FC<ITodoCard> = ({ todoId }) => {
                   onChange={handleChange}
                 />
                 <Label
+                  htmlFor={todo.task}
                   text={todo.task}
                   classes={checked ? 'line-through text-slate-500' : ''}
                 />
