@@ -1,13 +1,12 @@
-import { ChangeEvent } from 'react';
-
 export default interface IInput {
-  value: string | number;
-  type?: 'text' | 'number' | 'date' | 'email' | 'password' | 'file' | 'url';
+  value: string;
+  type?: 'text' | 'email' | 'password' | 'url';
+  name?: string;
   id?: string;
   hidden?: boolean;
   readonly?: boolean;
   disabled?: boolean;
   placeholder?: string;
   classes?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (val: string) => void;
 }

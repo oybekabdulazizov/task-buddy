@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { createTodo } from '../../../../services/store/todosSlice';
@@ -11,10 +11,9 @@ const CreateTodo: FC = () => {
   const [task, setTask] = useState<string>('');
   const [error, setError] = useState<string>('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setError(!value || value.length < 1 ? 'Task is required' : '');
-    setTask(value);
+  const handleChange = (val: string) => {
+    setError(!val || val.length < 1 ? 'Task is required' : '');
+    setTask(val);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

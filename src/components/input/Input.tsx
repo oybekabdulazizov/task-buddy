@@ -1,25 +1,36 @@
-import { FC } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 
 import IInput from './IInput';
 
 const Input: FC<IInput> = ({
   value,
   type = 'text',
-  id = '',
+  name = 'text',
+  id = 'text',
   hidden = false,
   readonly = false,
+  disabled = false,
   placeholder, 
   classes,
   onChange,
 }) => {
+  const [val, setVal] = useState<string>(value || '');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setVal(e.target.value);
+    onChange(e.target.value);
+  }
+
   return (
     <input
       type={type}
       id={id}
-      value={value}
+      name={name}
+      value={val}
       hidden={hidden}
+      disabled={disabled}
       readOnly={readonly}
-      onChange={onChange}
+      onChange={handleChange}
       placeholder={placeholder}
       className={`py-3 px-3 text-sm w-full focus:outline-none rounded-lg ${classes}`}
     />

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState, FC } from 'react';
+import { FormEvent, useState, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -14,17 +14,12 @@ const EditTodo: FC<IEditTodo> = ({ todoId, setEdit }) => {
   const dispatch = useDispatch();
   const todo: todo_type = useSelector((state) => getTodo(state, todoId || ''));
 
-  const [task, setTask] = useState<string>('');
+  const [task, setTask] = useState<string>(todo?.task || '');
   const [error, setError] = useState<string>('');
 
-  useEffect(() => {
-    setTask(todo.task);
-  }, []);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setError(!value || value.length < 1 ? 'Task is required' : '');
-    setTask(value);
+  const handleChange = (val: string) => {
+    setError(!val || val.length < 1 ? 'Task is required' : '');
+    setTask(val);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
