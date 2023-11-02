@@ -1,27 +1,38 @@
-# React + TypeScript + Vite
+# TaskBuddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Gotta give the credit. What can I say? 
 
-Currently, two official plugins are available:
+Thanks to [Vite](https://vitejs.dev/guide/), you can get a dev server that provides rich feature enhancements over native ES modules (e.g. extremely fast Hot Module Replacement).  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Demo 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Thanks to [Vercel](https://vercel.com/), you can see the deployed app [here](https://task-buddy-oybek.vercel.app/).
 
-- Configure the top-level `parserOptions` property like this:
+But first, I suggest reading the below description quickly. 
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Description
+
+A simple todo app with a slick and responsive UI that can help you get organized with your day and time. 
+Simply [open the app](https://task-buddy-oybek.vercel.app/) and you will know what to do. 
+
+In this project, I mainly focused on reusable components, folder structure, testing the reusable components using Jest and React Testing Library, and proper component creation. 
+
+
+## Tech stack 
+
+- React.JS 
+- Typescript 
+- Redux/Toolkit
+- Tailwind CSS 
+- Jest + React Testing Library   
+
+
+## Contact 
+
+If you notice any bugs or issues with the app, please do let me know. 
+You can reach out to me via email, at oybek.tulqinovich@gmail.com. 
+
+
+Cheers! 
